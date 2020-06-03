@@ -1,0 +1,1 @@
+pwd to print the path of our current working directory
