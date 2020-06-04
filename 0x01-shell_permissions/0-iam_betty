@@ -1,2 +1,2 @@
 #!/bin/bash
-usermod -l betty Andres Cortes
+usermod -l betty 1000
