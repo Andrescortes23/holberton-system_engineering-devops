@@ -1,2 +1,2 @@
-#!/bien/bash
+#!/bin/bash
 chmod ug+x,u+w hello
