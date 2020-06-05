@@ -1,2 +1,2 @@
 #!/bin/bash
-chown betty:holberton */14-change_owner_and_group
+chown betty:holberton */775
