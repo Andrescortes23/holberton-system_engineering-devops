@@ -1,2 +1,2 @@
 #!/bin/bash
-hown holberton:betty betty
+chgrp holberton betty
