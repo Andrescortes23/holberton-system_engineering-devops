@@ -1,2 +1,2 @@
 #!/bin/bash
-chown betty:holberton */775
+chown betty:holberton /
