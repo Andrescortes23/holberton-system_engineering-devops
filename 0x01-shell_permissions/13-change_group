@@ -1,2 +1,2 @@
 #!/bin/bash
-chgrp 751 664
+chgrp -f 751 664
