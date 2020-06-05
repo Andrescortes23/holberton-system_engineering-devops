@@ -1,2 +1,2 @@
 #!/bin/bash
-chown betty:holberton */pwd
+chown betty:holberton pwd*/
