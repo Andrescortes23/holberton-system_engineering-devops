@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -mindepth 2 -type d | ls -lRa
+find . */ -type d | ls -lRa
