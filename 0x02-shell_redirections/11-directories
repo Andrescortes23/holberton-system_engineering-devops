@@ -1,2 +1,2 @@
 #!/bin/bash
-wc --files0-from=. -a
+find . type d | ls - lR
