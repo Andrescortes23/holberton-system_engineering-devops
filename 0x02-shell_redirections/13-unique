@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq -u | sort -u
+uniq -u One line, one word One line, one word | sort -u
