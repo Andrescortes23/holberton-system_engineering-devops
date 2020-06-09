@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%b\n" {a..z}{a..z} | tail -303 | head -10 | grep -v oo
+printf "%b\n" {a..z}{a..z} | tail -304 | head -10 | grep -v oo
