@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#script to display Holberton School 10 times but in 9th display hi
+
+a="0"
+while [ $a -lt 10 ]
+do
+	echo "Holberton School"
+	((a++))
+	if [ $a -eq 9 ]
+	then
+		echo "Hi"
+	fi
+done
