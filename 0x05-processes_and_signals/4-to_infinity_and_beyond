@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#To inifinty and Beyond JCBT
+
+a=1
+while [ $a ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
