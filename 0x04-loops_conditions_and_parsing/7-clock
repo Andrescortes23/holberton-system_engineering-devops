@@ -5,8 +5,8 @@ hour=0
 while [ $hour -lt 13 ]
 do
 	echo Hour: $hour
-	min=0
-	while [ $min -lt 59 ]
+	min=1
+	while [ $min -lt 60 ]
 	do
 		echo $min
 		min=$((min+1))
