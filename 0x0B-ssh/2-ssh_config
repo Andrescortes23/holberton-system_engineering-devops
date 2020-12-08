@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+HostName 35.237.92.39
+PasswordAuthentication no
+IdentityFile ~/.ssh/holberton
