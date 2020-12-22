@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 #Configure Nginx so that its HTTP response contains a custom header
 
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+sudo ufw allow 'Nginx HTTP'
+sudo echo "Holberton School" | sudo tee -a /var/www/html/index.html
+
+sudo mkdir /var/www/error
+sudo touch /var/www/error/custom_404.html
+sudo echo "Ceci n'est pas une page" | sudo tee -a /var/www/error/custom_404.html
+
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo sed -i "/server_name _/ a\\\tadd_header X-Served-By \"\$HOSTNAME\";" /etc/nginx/sites-available/default
-service nginx start
+sudo sed -i '/listen 80 default_server/a error_page 404 /404.html;' /etc/nginx/sites-available/default
+sudo sed -i '/listen 80 default_server/a add_header X-Served-By $HOSTNAME;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
