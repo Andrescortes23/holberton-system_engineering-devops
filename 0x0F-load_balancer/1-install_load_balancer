@@ -4,7 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo echo "ENABLED=1" | sudo tee /etc/default/haproxy
 sudo echo "
-fronted http_front
+frontend http_front
 	bind *:80
 	mode http
 	default_backend http_back
