@@ -2,9 +2,9 @@
 #Script to display infor of subdomains
 
 if [ $# -eq 2 ]; then
-   dig "$2.$1" | grep -A1 'ANSWER SECTION:' | grep -v 'ANSWER' | awk -v subdoma="$2" '{print "The subdomain "subdoma" is a "$4" record and points to "$5}'
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:'| grep -v 'ANSWER' | awk -v subdoma="$2" '{print "The subdomain "subdoma" is a "$4" record and points to "$5}'
 else
-   for a in "www" "lb-01" "web-01" "web-02"; do
+    for a in "www" "lb-01" "web-01" "web-02"; do
        dig "$a.$1" | grep -A1 'ANSWER SECTION:' | grep -v 'ANSWER' | awk -v subdoma="$a" '{print "The subdomain "subdoma" is a "$4" record and points to "$5}'
-   done
+    done
 fi
