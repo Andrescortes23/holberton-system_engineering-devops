@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 #Script to display infor of subdomains
 
+toloop=( "www" "lb-01" "web-01" "web-02" )
+
 if [ $# -eq 2 ]; then
-    dig "$2.$1" | grep -A1 'ANSWER SECTION:'| grep -v 'ANSWER' | awk -v subdoma="$2" '{print "The subdomain "subdoma" is a "$4" record and points to "$5}'
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | grep -v 'ANSWER' | awk -v subdom="$2" '{print "The subdomain "subdom" is a "$4" record and points to "$5}'
 else
-    for a in 'www' 'lb-01' 'web-01' 'web-02'; do
-        dig "$a.$1" | grep -A1 'ANSWER SECTION:'| grep -v 'ANSWER' | awk -v subdoma="$a" '{print "The subdomain "subdoma" is a "$4" record and points to "$5}'
+    for var in "${toloop[@]}"; do
+	dig "$var.$1" |  grep -A1 'ANSWER SECTION:'|  grep -v 'ANSWER' | awk -v subdom="$var" '{print "The subdomain "subdom" is a "$4" record and points to "$5}'
     done
 fi
