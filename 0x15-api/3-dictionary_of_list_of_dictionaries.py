@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Export all to json"""
 
-import requests
 import json
-
+import requests
 
 if __name__ == '__main__':
     users = requests.get('https://jsonplaceholder.typicode.com/users').json()
@@ -17,7 +16,7 @@ if __name__ == '__main__':
                 task = {}
                 task["task"] = b["title"]
                 task["completed"] = b["completed"]
-                task["username"] = a['username']
+                task["username"] = a["username"]
                 the_list.append(task)
         the_dict[a['id']] = the_list
 
