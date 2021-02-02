@@ -8,20 +8,18 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    employee_id = int(argv[1])
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    todos = todos.json()
-    totaltasks = 0
-    titles = []
-    for a in todos:
-        if a.get('userId') == employee_id:
-            user = requests.get('https://jsonplaceholder.typicode.com/users')
-            user = user.json()
-            username = user[employee_id - 1]['name']
-            if a.get('completed') is True:
-                titles.append(a.get('title'))
-            totaltasks += 1
+    target = argv[1]
+    name = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(target)).json()
+    name = name.get('name')
+
+    tasks = requests.get("https://jsonplaceholder.typicode.com/users/{}/todos"
+                         .format(target)).json()
+    completed = []
+    for a in tasks:
+        if a['completed'] is True:
+            completed.append(a['title'])
     print("Employee {} is done with tasks({}/{}):"
-          .format(username, len(titles), totaltasks))
-    for ti in titles:
-        print("\t {}".format(ti))
+          .format(name, len(completed), len(tasks)))
+    for a in completed:
+        print("\t {}".format(a))
