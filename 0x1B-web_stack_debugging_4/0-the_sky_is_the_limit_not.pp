@@ -1,12 +1,6 @@
 # debbug to set number of request to unlimit
-exec { 'find and correct':
-    command => "sed -i 's/ULIMIT=/# ULIMIT=/g' /etc/default/nginx",
-    path    => [ '/usr/bin' , '/bin', '/usr/sbin', '/sbin' ],
-}
-exec { 'restart nginx':
-    command => 'sudo service nginx restart',
-    path    => '/usr/bin',
-} ~>
-service { 'nginx':
-    ensure    => running,
+exec { 'upperlimit' :
+  command =>  'sed -i "s/15/10000/g" /etc/default/nginx;service nginx restart',
+  path    =>  '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+  onlyif  =>  'test -e /etc/default/nginx',
 }
