@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve web_flask
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/AirBnb_clone_v4/web_dynamic
+ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:apiair.sock -m 007 app:app
+StandardError=/tmp/airbnb-error.log
+StandardAcces=/tmp/airbnb-access.log
+
+[Install]
+WantedBy=multi-user.target
